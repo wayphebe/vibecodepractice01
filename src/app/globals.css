@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply bg-surface-background text-text-primary antialiased;
+  }
+
+  h1 {
+    @apply text-heading-1;
+  }
+
+  h2 {
+    @apply text-heading-2;
+  }
+
+  h3 {
+    @apply text-heading-3;
+  }
+
+  /* 自定义滚动条样式 */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-subtle rounded-full hover:bg-text-secondary transition-colors;
+  }
+}
+
+@layer components {
+  /* 按钮基础样式 */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-btn font-medium transition-colors
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20
+           disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 active:bg-primary/80;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-text-primary border border-border-subtle
+           hover:bg-surface-background active:bg-border-subtle;
+  }
+
+  .btn-destructive {
+    @apply bg-danger text-white hover:bg-danger/90 active:bg-danger/80;
+  }
+
+  .btn-ghost {
+    @apply text-text-primary hover:bg-surface-background active:bg-border-subtle;
+  }
+
+  /* 表单控件基础样式 */
+  .form-input,
+  .form-select,
+  .form-textarea {
+    @apply w-full rounded-input border-border-subtle bg-surface-card px-3 py-2
+           focus:border-primary focus:ring-1 focus:ring-primary/20
+           disabled:bg-surface-background disabled:text-text-secondary;
+  }
+
+  .form-input.error,
+  .form-select.error,
+  .form-textarea.error {
+    @apply border-danger focus:border-danger focus:ring-danger/20;
+  }
+
+  /* 标签/徽章基础样式 */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-caption font-medium;
+  }
+
+  .badge-success {
+    @apply bg-success/10 text-success;
+  }
+
+  .badge-warning {
+    @apply bg-warning/10 text-warning;
+  }
+
+  .badge-danger {
+    @apply bg-danger/10 text-danger;
+  }
+
+  .badge-info {
+    @apply bg-info/10 text-info;
+  }
+
+  /* 滑块基础样式 */
+  input[type="range"] {
+    @apply h-1 rounded-full bg-border-subtle appearance-none cursor-pointer;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply w-4 h-4 rounded-full bg-primary shadow hover:scale-110 active:scale-95
+           transition-transform appearance-none;
+  }
+
+  /* 卡片基础样式 */
+  .card {
+    @apply rounded-card bg-surface-card p-4 shadow-card transition-shadow
+           hover:shadow-card-hover;
+  }
+
+  .card-interactive {
+    @apply cursor-pointer hover:translate-y-[-1px] transition-transform;
+  }
+
+  /* 标签页基础样式 */
+  .tabs {
+    @apply flex space-x-1 p-1 bg-surface-background rounded-lg;
+  }
+
+  .tab {
+    @apply px-3 py-2 text-sm font-medium rounded-md transition-colors
+           hover:text-text-primary hover:bg-surface-card/60;
+  }
+
+  .tab-active {
+    @apply bg-surface-card text-primary shadow-sm;
+  }
+}
